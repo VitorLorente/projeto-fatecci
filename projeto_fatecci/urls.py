@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from matricula.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^cadastro_aluno$', cadastro_aluno)
 ]

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <form name="cadastro" id="cadastro" method="POST">
+        <label for="nome">Nome: </label>
+        <br/>
+        <input name="nome" id="nome">
+        <br/>
+        <br />
+        <label for="email">Email: </label>
+        <br/>
+        <input name="email" type="email" id="email">
+        <br/>
+        <br />
+        <label for="telefone">Telefone: </label>
+        <br/>
+        <input id="telefone" name="telefone" type="tel">
+        <br/>
+        <br/>
+        <label for="ra">RA: </label>
+        <br/>
+        <input name="RA" type="number" id="ra">
+        <br/>
+        <br/>
+        <label for="curso">Curso: </label>
+        <br/>
+        <select name="curso" id="curso"> 
+            <option id="curso">Selecione</option>
+            <option value="SI">Sistemas de informação</option>
+            <option value="RC">Redes</option>
+            <option value="GS">Gestão de SI</option>
+            <option value="AS">Análise de Sistemas</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
