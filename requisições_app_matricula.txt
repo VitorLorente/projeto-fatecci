@@ -1,6 +1,11 @@
--> Cadastrar aluno;
--> Cadastrar professor;
--> Cadastrar disciplinas;
--> Disciplina Ofertada;
--> Cadastrar turma;
--> Tabela e app de matrícula
+-> Cadastrar aluno; ok
+-> Cadastrar professor; ok
+-> Cadastrar disciplinas; ok
+-> Disciplina Ofertada; ok
+-> Cadastrar turma; ok
+-> Cadastrar Cruso; ok
+-> Cadastrar Grade curricular; ok
+-> Cadastrar Periodo; ok
+-> Cadastrar PeriodoDisciplina ok
+-> Cadastrar Turma ok
+-> Cadastrar Matricula ok
