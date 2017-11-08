@@ -1,0 +1,6 @@
+-> Cadastrar aluno;
+-> Cadastrar professor;
+-> Cadastrar disciplinas;
+-> Disciplina Ofertada;
+-> Cadastrar turma;
+-> Tabela e app de matrícula
