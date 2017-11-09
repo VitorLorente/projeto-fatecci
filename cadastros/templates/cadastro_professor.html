@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cadastro de aluno</title>
+    <title>Cadastro de professor</title>
     <meta charset="UTF-8"/>
 </head>
 <body>
@@ -10,11 +10,12 @@
             <a href="{% url 'home' %}">Home</a>
         </li>
         <li>
-            <a href="{% url 'cadastro_professor' %}">Cadastro professor</a>
+            <a href="{% url 'cadastro_aluno' %}">Cadastro aluno</a>
         </li>
-     </ul>
+    </ul>
+
     <div class="formulario">
-        <h1>Cadastro de Aluno</h1>
+        <h1>Cadastro de Professor</h1>
         {{ form.non_field_errors }}        
         <form name="cadastro" id="cadastro" method="POST">
             {% csrf_token %}

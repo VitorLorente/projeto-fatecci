@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from cadastros.views import *
+from core.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^cadastro_aluno$', cadastro_aluno)
+    url(r'^cadastro_aluno$', cadastro_aluno, name='cadastro_aluno'),
+    url(r'^cadastro_professor$', cadastro_professor, name='cadastro_professor'),
+    url(r'^', home, name='home')
 ]
