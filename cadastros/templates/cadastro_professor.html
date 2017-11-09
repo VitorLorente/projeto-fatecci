@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de professor</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+            <a href="{% url 'cadastro_aluno' %}">Cadastro aluno</a>
+        </li>
+    </ul>
+
+    <div class="formulario">
+        <h1>Cadastro de Professor</h1>
+        {{ form.non_field_errors }}        
+        <form name="cadastro" id="cadastro" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <p>
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                    {% if field.help_text %}
+                        <p class="help">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                </p>
+            {% endfor %}
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
