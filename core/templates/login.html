@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="body">
+    <div class="padrao">
+        <div class="formulario">
+            <form  name="login" method="POST" id="login">
+                <label for="loginra"><i class="fa fa-unlock-alt"></i> Identificador</label>:<br/>
+                <input type="ra" name="loginra" id="ra" class="input"><br><br/>
+                <label for="senha"><i class="fa fa-asterisk"></i> Senha</label>:<br/><br/>
+                <input name="senha" type="password" id="senha" class="input"><br/><br/>
+                <button type="reset"  class="botao">Limpar</button>
+                <button type="submit" class="botao">Enviar</button><br/><br/>
+                <label for="lembrar">Lembrar de mim? </label>
+                <input name="lembrar" type="checkbox" value="lembrar">
+            </form>
+            <br/>
+        </div>
+        <div class="links">
+            <p><a href="esqueci.html">Esqueceu a senha?</a></p>
+            <p><a href="cadastro.html">Cadastre-se</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
