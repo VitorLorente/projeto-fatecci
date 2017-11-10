@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Cursos - FaTecCi</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="estilo/estilos.css">
-        <link rel="icon" href="imagens/favicon.png">
-        <link href="https://fonts.googleapis.com/css?family=Encode+Sans:400,600,700" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class='navbar'>
-            <ul class='container'>
-                <a href='index.html'> <img src="imagens/logo.svg"/> </a>
-                <li><a href='index.html'>Home Page</a></li>
-                <li><a href='cursos.html'>Cursos</a></li>
-                <li><a href='noticias.html'>Notícias</a></li>
-            </ul>
-        </div>
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
         <div class="body">
             <div class='disciplinas'>
                 <h1>Cidadania Participativa - Disciplinas</h1>
@@ -110,8 +94,4 @@
 
             </div>
         </div>
-        <div class='footer'>
-                <p>FACULDADE TECNOLOGIA E CIDADANIA - FaTecCi <br />Contato: (11) 9 9999-9999</p>
-        </div>
-    </body>
-</html>
+{% endblock %}

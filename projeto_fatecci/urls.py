@@ -22,5 +22,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cadastro_aluno$', cadastro_aluno, name='cadastro_aluno'),
     url(r'^cadastro_professor$', cadastro_professor, name='cadastro_professor'),
+    url(r'^cursos$', cursos, name='cursos'),
+    url(r'^noticias$', noticias, name='noticias'),
+    url(r'^grade_curricular$', grade, name='grade'),
+    url(r'^detalhes$', detalhes, name='detalhes'),
+    url(r'^login$', login, name='login'),
     url(r'^', home, name='home')
 ]

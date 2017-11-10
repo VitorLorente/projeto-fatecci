@@ -6,22 +6,26 @@
         <title>Cursos - FaTecCi</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
-        <link rel="icon" href="imagens/favicon.png">
+        <link rel="icon" href="{% static 'img/favicon.png' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome-4.7.0/css/font-awesome.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Encode+Sans:400,600,700" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class='navbar'>
             <ul class='container'>
-                <a href='index.html'> <img src="imagens/logo.svg"/> </a>
-                <li><a href='index.html'>Home Page</a></li>
-                <li><a href='cursos.html'>Cursos</a></li>
-                <li><a href='noticias.html'>Notícias</a></li>
+                <a href="{% url 'home' %}"> <img src="{% static 'img/logo.svg' %}"/> </a>
+                <li class="hidden"><a href="#"><i class="fa fa-bars"></i> Menu</a></li>
+                <li><a href="{% url 'home' %}"><i class="fa fa-home"></i>
+                    Home Page</a></li>
+                <li><a href="{% url 'cursos' %}"><i class="fa fa-list-ul"></i> Cursos</a></li>
+                <li><a href="{% url 'noticias' %}"><i class="fa fa-newspaper-o"></i> Notícias</a></li>
+                <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Login</a></li>
             </ul>
         </div>
         <div class='propaganda'>
-                <img src="imagens/propaganda.png"/>
-                <img src="imagens/propaganda2.png"/>
+            <img src="{% static 'img/propaganda.png' %}"/>
+            <img src="{% static 'img/propaganda2.png' %}"/>
         </div>
         {% block content %}
         

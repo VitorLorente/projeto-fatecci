@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
         <div class="body">
             <div class='sobre'>
                 <h1>Sobre a FaTecCi</h1><!-- Onde estão o H1 e H2? -->
@@ -25,7 +26,7 @@
                 </div>
 
                 <div class="img_aluno">
-                    <p><img src='imagens/gv.jpg' alt='Getúlio Vargas'></p>
+                    <p><img src="{% static 'img/gv.jpg' %}" alt='Getúlio Vargas'></p>
                     <p><strong>Getúlio Vargas</strong></p>
                 </div>
             </div>
@@ -37,7 +38,7 @@
                 </div>
 
                 <div class="img_aluno">
-                    <p><img src='imagens/pedro-II.jpg' alt='Dom Pedro segundo'></p><!-- Não é errado, mas é estranho parágrafos com apenas imagens -->
+                    <p><img src="{% static 'img/pedro-II.jpg' %}" alt='Dom Pedro segundo'></p><!-- Não é errado, mas é estranho parágrafos com apenas imagens -->
                     <p><strong>D. Pedro II</strong></p>
                 </div>
             </div>
@@ -48,7 +49,7 @@
                 </div>
 
                 <div class="img_aluno">
-                    <p><img src='imagens/jheimis.jpg' alt='Jheimisson'></p>
+                    <p><img src="{% static 'img/jheimis.jpg' %}" alt='Jheimisson'></p>
                     <p><strong>Jheimisson</strong></p>
                 </div>
             </div>
