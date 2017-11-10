@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cadastro_aluno$', cadastro_aluno, name='cadastro_aluno'),
     url(r'^cadastro_professor$', cadastro_professor, name='cadastro_professor'),
+    url(r'^cadastro_disciplina$', cadastro_disciplina, name='cadastro_disciplina'),
     url(r'^', home, name='home')
 ]
