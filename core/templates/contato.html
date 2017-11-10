@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cursos - FaTecCi</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="estilo/estilos.css">
+        <link rel="icon" href="imagens/favicon.png">
+        <link href="https://fonts.googleapis.com/css?family=Encode+Sans:400,600,700" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class='navbar'>
+            <ul class='container'>
+                <a href='index.html'> <img src="imagens/logo.svg"/> </a>
+                <li><a href='index.html'>Home Page</a></li>
+                <li><a href='cursos.html'>Cursos</a></li>
+                <li><a href='noticias.html'>Notícias</a></li>
+            </ul>
+        </div>
+        <div class='propaganda'>
+            <img src="imagens/propaganda.png"/>
+            <img src="imagens/propaganda2.png"/>
+        </div>
+        <div class="body">
+            <div class="formulario">
+                <form id="contanto" >
+                    <div class="row">
+                        <label for="nome">Nome:</label><br />
+                        <input id="nome" name="nome"  type="text"  /><br />
+                    <label for="assunto">Assunto :<br/>
+                        <select name="assunto">
+                            <option value="prof">Professores</option>
+                            <option value="falta">Presença</option>
+                            <option value="cursos">Cursos</option>
+                            <option value="documentações">Documentações</option>
+                        </select>
+                        <label for="email"><br> Email:</label><br />
+                        <input id="email" name="email" type="text"  /><br />
+                        <label for="mensagem"> Mensagem:</label><br />
+                        <textarea id="mensagem" type="text" name="mensagem"> </textarea>
+                        <button type="reset">Limpar</button>
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+            <br />
+        </div>
+        <div class='footer'>
+            <p>FACULDADE TECNOLOGIA E CIDADANIA - FaTecCi <br />Contato: (11) 9 9999-9999</p>
+        </div>
+    </body>
+</html>
