@@ -26,10 +26,10 @@ class Disciplina(models.Model):
     carga_horaria = models.SmallIntegerField()
     teoria = models.DecimalField(max_digits=3, decimal_places=0)
     pratica = models.DecimalField(max_digits=3, decimal_places=0)
-    ementa = models.TextField()  # This field type is a guess.
-    competencias = models.TextField()  # This field type is a guess.
+    ementa = models.TextField(blank=True, null=True)  # This field type is a guess.
+    competencias = models.TextField(blank=True, null=True)  # This field type is a guess.
     habilidades = models.TextField(blank=True, null=True)  # This field type is a guess.
-    conteudo = models.TextField()  # This field type is a guess.
+    conteudo = models.TextField(blank=True, null=True)  # This field type is a guess.
     bibliografia_basica = models.TextField(blank=True, null=True)  # This field type is a guess.
     bibliografia_complementar = models.TextField(blank=True, null=True)  # This field type is a guess.
         
@@ -50,6 +50,9 @@ class Curso(models.Model):
 
     class Meta:
         db_table = 'CURSO'
+    
+    def __str__(self):
+        return self.sigla
 
 class GradeCurricular(models.Model):
     sigla_curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='sigla_curso')

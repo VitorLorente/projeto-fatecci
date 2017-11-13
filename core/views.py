@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from cadastros.forms import AlunoForm #MatriculaForm
 
 # Create your views here.
 def home(request):
@@ -18,3 +19,34 @@ def detalhes(request):
 
 def login(request):
     return render(request, "login.html")
+
+def matricula1(request):
+    if request.POST:
+        form = AlunoForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = AlunoForm()
+        
+
+    context = {
+        'form' : form
+    }
+    #django-widget-tweaks
+
+    return render(request, "matricula1.html", context)
+
+def matricula2(request):
+    if request.POST:
+        form = MatriculaForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = MatriculaForm()
+
+    context = {
+        'form' : form
+    }
+
+    return render(request, "matricula2.html", context)
