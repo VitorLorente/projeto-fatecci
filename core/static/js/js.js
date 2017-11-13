@@ -1,15 +1,11 @@
-var menu = document.querySelectorAll('a')[1];
+var menu = document.querySelectorAll('li')[0];
 var toggle = [];
 var ativo = true;
-var w = window.innerWidth;
 
 var ligaDesliga = document.querySelectorAll('.navbar li');
 
-if(window.innerWidth < 400){
-	console.log("menor");
-}
-
 menu.addEventListener('click', function(){
+	console.log('Teste');
 	if(ativo == true){
 		for(var i = 0; i < ligaDesliga.length; i++){
 			ligaDesliga[i].style.display = 'block';
