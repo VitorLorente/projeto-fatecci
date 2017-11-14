@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from cadastros.forms import AlunoForm #MatriculaForm
+from cadastros.forms import AlunoForm, MatriculaForm
 
 # Create your views here.
 def home(request):

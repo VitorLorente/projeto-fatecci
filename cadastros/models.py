@@ -10,6 +10,9 @@ class Aluno(models.Model):
 
     class Meta:
         db_table = 'ALUNO'
+    
+    def __str__(self):
+        return str(self.ra)
 
 class Professor(models.Model):
     ra = models.IntegerField(unique=True)
@@ -20,6 +23,9 @@ class Professor(models.Model):
 
     class Meta:
         db_table = 'PROFESSOR'
+    
+    def __str__(self):
+        return self.ra
 
 class Disciplina(models.Model):
     nome = models.CharField(unique=True, max_length=240, db_column='nome_disciplina')
@@ -36,6 +42,9 @@ class Disciplina(models.Model):
     class Meta:
         db_table = 'DISCIPLINA'
 
+    def __str__(self):
+        return self.nome
+
 class DisciplinaOfertada(models.Model):
     nome_disciplina = models.ForeignKey(Disciplina, models.DO_NOTHING, db_column='nome_disciplina', unique=True)
     ano = models.SmallIntegerField(unique=True)
@@ -43,6 +52,14 @@ class DisciplinaOfertada(models.Model):
 
     class Meta:
         db_table = 'DISCIPLINA_OFERTADA'
+
+    def __str__(self):
+        if self.semestre == 1:
+            sem = '1º semestre'
+        else:
+            sem = '2º semestre'
+
+        return '{} {} {}'.format(self.nome_disciplina.nome, self.ano, sem)
 
 class Curso(models.Model):
     sigla = models.CharField(unique=True, max_length=5)
@@ -61,6 +78,12 @@ class GradeCurricular(models.Model):
 
     class Meta:
         db_table = 'GRADE_CURRICULAR'
+    def __str__(self):
+        if self.semestre == 1:
+            sem = '1º'
+        else:
+            sem = '2º'
+        return "{} {} {}".format(self.sigla_curso.sigla, self.ano, sem)
 
 class Periodo(models.Model):
     sigla_curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='sigla_curso', blank=True, null=True)
@@ -70,6 +93,13 @@ class Periodo(models.Model):
 
     class Meta:
         db_table = 'PERIODO'
+
+    def __str__(self):
+        if self.numero == 1:
+            num = 'matutino'
+        else:
+            num = 'noturno'
+        return '{}'.format(num)
 
 class PeriodoDisciplina(models.Model):
     sigla_curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='sigla_curso', blank=True, null=True)
@@ -90,6 +120,9 @@ class Turma(models.Model):
 
     class Meta:
         db_table = 'TURMA'
+
+    def __str__(self):
+        return str(self.id_turma)
 
 class Matricula(models.Model):
     ra_aluno = models.ForeignKey(Aluno, models.DO_NOTHING, db_column='ra_aluno')
