@@ -22,16 +22,12 @@
                 <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Login</a></li>
             </ul>
         </div>
-        <div class='propaganda'>
-            <img src="{% static 'img/propaganda.png' %}"/>
-            <img src="{% static 'img/propaganda2.png' %}"/>
-        </div>
         {% block content %}
         
         {% endblock %}
         <div class='footer'>
-                <p>FACULDADE TECNOLOGIA E CIDADANIA - FaTecCi <br />
-                    <a href="{% url 'contato' %}"> Contato: </a>(11) 9 9999-9999</p>
-        </div>
-    </body>
+            <p>FACULDADE TECNOLOGIA E CIDADANIA - FaTecCi <br />
+                <a href="{% url 'contato' %}"> Contato: </a>(11) 9 9999-9999</p>
+    </div>
+</body>
 </html>

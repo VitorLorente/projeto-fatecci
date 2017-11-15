@@ -35,5 +35,7 @@ urlpatterns = [
     url(r'^login$', login, name='login'),
     url(r'^matricula1$', matricula1, name='matricula1'),
     url(r'^matricula2$', matricula2, name='matricula2'),
+    url(r'^pagina_aluno', pagina_aluno, name='pagina_aluno'),
+    url(r'^contato', contato, name='contato'),
     url(r'^', home, name='home')
 ]

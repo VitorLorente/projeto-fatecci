@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Professor - FaTecCi</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="estilo/estilos.css">
+        <link rel="icon" href="imagens/favicon.png">
+        <link rel="stylesheet" type="text/css" href="estilo/font-awesome-4.7.0/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Encode+Sans:400,600,700" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class='navbar'>
+            <ul class='container'>
+                <a href='index.html'> <img src="imagens/logo.svg"/> </a>
+                <li class="hidden"><a href="#"><i class="fa fa-bars"></i> Menu</a></li>
+                <li><a href='index.html'><i class="fa fa-home"></i>Home Page</a></li>
+                <li><a href='cursos.html'><i class="fa fa-list-ul"></i> Cursos</a></li>
+                <li><a href='noticias.html'><i class="fa fa-newspaper-o"></i> Notícias</a></li>
+                <li><a href="login.html"><i class="fa fa-sign-in"></i> Login</a></li>
+            </ul>
+        </div>
+
+        <div class="body">
+            <div class="adless">
+                <div class="left">
+                    <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" />     
+                    <ul>
+                        <li>Nome do professor: Victor Camilo</li>
+                        <li>RA do professor: 1700608</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <div>
+                        <i class="fa fa-exclamation"></i><h2>Avisos:</h2>
+                        <div class="aviso">
+                            <p>Data: 15/11/2017 |</p>
+                            <p>Título do aviso!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                        <div>
+                            <i class="fa fa-pencil-square-o"></i><h2>Cadastrar avisos:</h2>
+                            <form name="cadastro_aviso" method="POST">
+                                <label for="titulo_aviso">Título do aviso: </label>
+                                <input type="text" id="titulo_aviso" placeholder="Insira seu texto..."/>
+                                <label for="texto_aviso">Descrição do aviso: </label>
+                                <textarea id="texto_aviso"></textarea>
+                                <button>Publicar: </button>
+                            </form>
+                        </div>
+                    </div>
+                <div class="right">
+                    <div>
+                        <i class="fa fa-info-circle"></i><h2>Entregas recebidas:</h2>
+                        <ul>
+                            <li class="entregar">Título Matéria 1:
+                                <ul>
+                                    <li>Detalhe 1</li>
+                                    <li>Detalhe 2</li>
+                                    <li>Detalhe 3</li>
+                                    <li>Detalhe 4</li>
+                                </ul>
+                            </li>                       
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class='footer'>
+            <p>FACULDADE TECNOLOGIA E CIDADANIA - FaTecCi <br />
+                <a href="contato.html">Contato:</a> (11) 9 9999-9999
+            </p>
+        </div>
+        <script type="text/javascript" src="src/js.js"></script>
+    </body>
+</html>

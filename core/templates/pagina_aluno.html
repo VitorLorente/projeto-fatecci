@@ -1,0 +1,44 @@
+{% extends 'base_logged.html' %}
+{% block content %}
+{% load static %}
+        <div class="body">
+            <div class="adless">
+                <div class="left">
+                    <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" />     
+                    <ul>
+                        <li>Nome do aluno: Victor Camilo</li>
+                        <li>RA do aluno: 1700608</li>
+                        <li>Curso do aluno: Sistemas de informação</li>
+                        <li>Semestre do aluno: 2º</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <div>
+                        <i class="fa fa-exclamation"></i><h2>Avisos:</h2>
+                        <div class="aviso">
+                            <p>Data: 15/11/2017 |</p>
+                            <p>Título do aviso!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div>
+                            <i class="fa fa-info-circle"></i><h2>Entregas pendentes:</h2>
+                        <ul>
+                            <li class="entregar">Título Matéria 1:
+                                <ul>
+                                    <li>Detalhe 1</li>
+                                    <li>Detalhe 2</li>
+                                    <li>Detalhe 3</li>
+                                    <li>Detalhe 4</li>
+                                </ul>
+                            </li>                       
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+{% endblock %}
