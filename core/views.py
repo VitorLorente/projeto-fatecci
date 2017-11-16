@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from cadastros.forms import AlunoForm, MatriculaForm
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
 def home(request):
@@ -20,9 +21,19 @@ def detalhes(request):
 def login(request):
     return render(request, "login.html")
 
+def checa_aluno(usuario):
+    return usuario.perfil == "A"
+
+def checa_professor(usuario):
+    return usuario.perfil == "P"
+
+@login_required(login_url="/login")
+@user_passes_test(checa_aluno)
 def pagina_aluno(request):
     return render(request, "pagina_aluno.html")
 
+@login_required(login_url="/login")
+@user_passes_test(checa_professor)
 def pagina_professor(request):
     return render(request, "pagina_professor.html")
 

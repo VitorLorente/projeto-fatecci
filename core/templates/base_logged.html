@@ -19,7 +19,12 @@
                 <li><a href="{% url 'home' %}"><i class="fa fa-home"></i>Home Page</a></li>
                 <li><a href="{% url 'cursos' %}"><i class="fa fa-list-ul"></i> Cursos</a></li>
                 <li><a href="{% url 'noticias' %}"><i class="fa fa-newspaper-o"></i> Notícias</a></li>
-                <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Login</a></li>
+                <li><a href="{% url 'logout' %}"><i class="fa fa-sign-in"></i> Logout</a></li>
+                {% if user.perfil == 'A' %}
+                    <li><a href="{% url 'pagina_aluno' %}"><i class="fa fa-sign-in"></i> Aluno</a></li>
+                {% else %}
+                    <li><a href="{% url 'pagina_professor' %}"><i class="fa fa-sign-in"></i> Professor</a></li>
+                {% endif %}
             </ul>
         </div>
         {% block content %}
