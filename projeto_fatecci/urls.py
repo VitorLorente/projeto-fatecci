@@ -17,9 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 from cadastros.views import *
 from core.views import *
+from django.contrib.auth.views import login, logout
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin', admin.site.urls),
     url(r'^cadastro_aluno$', cadastro_aluno, name='cadastro_aluno'),
     url(r'^cadastro_professor$', cadastro_professor, name='cadastro_professor'),
     url(r'^cadastro_curso$', cadastro_curso, name='cadastro_curso'),
@@ -32,8 +33,12 @@ urlpatterns = [
     url(r'^noticias$', noticias, name='noticias'),
     url(r'^grade_curricular$', grade, name='grade'),
     url(r'^detalhes$', detalhes, name='detalhes'),
-    url(r'^login$', login, name='login'),
+    url(r'^login$', login, {"template_name": "login.html"}, name='login'),
+    url(r'^logout$', logout, name='logout'),
     url(r'^matricula1$', matricula1, name='matricula1'),
     url(r'^matricula2$', matricula2, name='matricula2'),
+    url(r'^pagina_aluno', pagina_aluno, name='pagina_aluno'),
+    url(r'^pagina_professor', pagina_professor, name='pagina_professor'),
+    url(r'^contato', contato, name='contato'),
     url(r'^', home, name='home')
 ]

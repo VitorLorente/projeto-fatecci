@@ -1,9 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, UserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 # Create your models here.
 
-class UsuarioManager(UserManager):
+class UsuarioManager(BaseUserManager):
     def _criar_usuario(self, ra, password, **campos):
         if not ra: 
             raise ValueError("RA deve ser declarado!")
@@ -21,12 +21,13 @@ class UsuarioManager(UserManager):
 
 class Usuario(AbstractBaseUser):
     ra = models.IntegerField("RA", unique=True)
+    password = models.CharField("Senha", max_length=200)
     nome = models.CharField("Nome", max_length=120, blank=True, null=True)
     email = models.EmailField("E-mail", max_length=80, blank=True, null=True)
     ativo = models.BooleanField("Ativo", default=True)
     perfil = models.CharField("Perfil", max_length=1)
     
-    USERNAME_FIELD = "ra"
+    USERNAME_FIELD = 'ra'
     REQUIRED_FIELDS = ["email", "nome"]
 
     object = UsuarioManager()

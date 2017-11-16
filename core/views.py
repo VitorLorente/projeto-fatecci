@@ -20,6 +20,15 @@ def detalhes(request):
 def login(request):
     return render(request, "login.html")
 
+def pagina_aluno(request):
+    return render(request, "pagina_aluno.html")
+
+def pagina_professor(request):
+    return render(request, "pagina_professor.html")
+
+def contato(request):
+    return render(request, "contato.html")
+
 def matricula1(request):
     if request.POST:
         form = AlunoForm(request.POST)
