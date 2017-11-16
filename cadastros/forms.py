@@ -1,12 +1,31 @@
 from django.forms import ModelForm
 from .models import *
+from autentication.models import *
 
 class AlunoForm(ModelForm):
+
+    def save(self, commit=True):
+        aluno = super(AlunoForm, self).save(commit=False)
+        aluno.set_password("provisoria123")
+        aluno.perfil = 'A'
+        if commit:
+            aluno.save()
+        return aluno
+
     class Meta:
         model = Aluno
-        fields = '__all__'
+        fields = ['ra', 'nome', 'email', 'celular', 'sigla_curso']
 
 class ProfessorForm(ModelForm):
+
+    def save(self, commit=True):
+        professor = super(ProfessorForm, self).save(commit=False)
+        professor.set_password("provisoria123")
+        professor.perfil = 'P'
+        if commit:
+            professor.save()
+        return professor
+
     class Meta:
         model = Professor
         fields = '__all__'
