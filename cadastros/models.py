@@ -1,12 +1,20 @@
 from django.db import models
+from autentication.models import Usuario
 
 # Create your models here.
-class Aluno(models.Model):
-    ra = models.IntegerField(unique=True)
-    nome = models.CharField(max_length=120)
-    email = models.CharField(max_length=80)
+class Curso(models.Model):
+    sigla = models.CharField(unique=True, max_length=5)
+    nome = models.CharField(unique=True, max_length=50)
+
+    class Meta:
+        db_table = 'CURSO'
+    
+    def __str__(self):
+        return self.sigla
+
+class Aluno(Usuario):
     celular = models.CharField(max_length=11, blank=True, null=True)
-    sigla_curso = models.CharField(max_length=2)
+    sigla_curso = models.ForeignKey(Curso)
 
     class Meta:
         db_table = 'ALUNO'
@@ -14,18 +22,22 @@ class Aluno(models.Model):
     def __str__(self):
         return str(self.ra)
 
-class Professor(models.Model):
-    ra = models.IntegerField(unique=True)
+class Professor(Usuario):
     apelido = models.CharField(unique=True, max_length=30)
-    nome = models.CharField(max_length=120)
-    email = models.CharField(max_length=80)
     celular = models.CharField(max_length=11, blank=True, null=True)
 
     class Meta:
         db_table = 'PROFESSOR'
     
     def __str__(self):
-        return self.ra
+        return str(self.ra)
+
+class Coordenador(Usuario):
+    celular = models.CharField(max_length=11, blank=True, null=True)
+    sigla_curso = models.ForeignKey(Curso)
+
+    class Meta:
+        db_table = 'COORDENADOR'
 
 class Disciplina(models.Model):
     nome = models.CharField(unique=True, max_length=240, db_column='nome_disciplina')
@@ -38,6 +50,7 @@ class Disciplina(models.Model):
     conteudo = models.TextField(blank=True, null=True)  # This field type is a guess.
     bibliografia_basica = models.TextField(blank=True, null=True)  # This field type is a guess.
     bibliografia_complementar = models.TextField(blank=True, null=True)  # This field type is a guess.
+    sigla_curso = models.ForeignKey(Curso)
         
     class Meta:
         db_table = 'DISCIPLINA'
@@ -47,8 +60,8 @@ class Disciplina(models.Model):
 
 class DisciplinaOfertada(models.Model):
     nome_disciplina = models.ForeignKey(Disciplina, models.DO_NOTHING, db_column='nome_disciplina', unique=True)
-    ano = models.SmallIntegerField(unique=True)
-    semestre = models.CharField(unique=True, max_length=1)
+    ano = models.SmallIntegerField()
+    semestre = models.CharField(max_length=1)
 
     class Meta:
         db_table = 'DISCIPLINA_OFERTADA'
@@ -61,20 +74,10 @@ class DisciplinaOfertada(models.Model):
 
         return '{} {} {}'.format(self.nome_disciplina.nome, self.ano, sem)
 
-class Curso(models.Model):
-    sigla = models.CharField(unique=True, max_length=5)
-    nome = models.CharField(unique=True, max_length=50)
-
-    class Meta:
-        db_table = 'CURSO'
-    
-    def __str__(self):
-        return self.sigla
-
 class GradeCurricular(models.Model):
     sigla_curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='sigla_curso')
-    ano = models.SmallIntegerField(unique=True)
-    semestre = models.CharField(unique=True, max_length=1)
+    ano = models.SmallIntegerField()
+    semestre = models.CharField(max_length=1)
 
     class Meta:
         db_table = 'GRADE_CURRICULAR'
@@ -89,7 +92,7 @@ class Periodo(models.Model):
     sigla_curso = models.ForeignKey(Curso, models.DO_NOTHING, db_column='sigla_curso', blank=True, null=True)
     ano_grade = models.ForeignKey(GradeCurricular, models.DO_NOTHING, db_column='ano_grade', related_name='ano_periodo')
     semestre_grade = models.ForeignKey(GradeCurricular, models.DO_NOTHING, db_column='semestre_grade', related_name='semestre_periodo')
-    numero = models.SmallIntegerField(unique=True)
+    numero = models.SmallIntegerField()
 
     class Meta:
         db_table = 'PERIODO'
