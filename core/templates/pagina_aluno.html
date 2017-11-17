@@ -10,28 +10,28 @@
                         <li>Curso do aluno: {{ curso }}</li>
                         <li><a href="{% url 'matricula_disciplina' %}">Disciplinas para matrícula</a></li>
                     </ul>
+                    <div>
+                        <p>Disciplinas disponíveis:</p>
+                        <ul>
+                            {% for disciplina in disciplinasOfertadas %}
+                                <li><a href="{% url disciplina.nome_disciplina.slug %}">{{ disciplina.nome_disciplina.nome }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
+
                 <br>
-                <div class="disciplinas">
-                    <p>Disciplinas disponíveis:</p>
-                    <ul>
-                        {% for disciplina in disciplinasOfertadas %}
-                            <li><a href="{% url disciplina.nome_disciplina.slug %}">{{ disciplina.nome_disciplina.nome }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="right">
+                <div class="content">
                     <div>
                         <i class="fa fa-exclamation"></i><h2>Avisos:</h2>
                         <div class="aviso">
-                            <p>Data: 15/11/2017 |</p>
-                            <p>Título do aviso!</p>
+                            <p>Data: 15/11/2017 | Título do aviso!</p>
                         </div>
                     </div>
                 </div>
-                <div class="right">
+                <div class="content">
                     <div>
-                            <i class="fa fa-info-circle"></i><h2>Entregas pendentes:</h2>
+                        <i class="fa fa-info-circle"></i><h2>Entregas pendentes:</h2>
                         <ul>
                             <li class="entregar">Título Matéria 1:
                                 <ul>
