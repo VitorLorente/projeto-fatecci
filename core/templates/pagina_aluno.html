@@ -3,13 +3,21 @@
 {% load static %}
         <div class="body">
             <div class="adless">
-                <div class="left">
-                    <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" />     
+                <div class="perfil">   
                     <ul>
-                        <li>Nome do aluno: Victor Camilo</li>
-                        <li>RA do aluno: 1700608</li>
-                        <li>Curso do aluno: Sistemas de informação</li>
-                        <li>Semestre do aluno: 2º</li>
+                        <li>Nome do aluno: {{ user.nome }}</li>
+                        <li>RA do aluno: {{ user.ra }}</li>
+                        <li>Curso do aluno: {{ curso }}</li>
+                        <li><a href="{% url 'matricula_disciplina' %}">Disciplinas para matrícula</a></li>
+                    </ul>
+                </div>
+                <br>
+                <div class="disciplinas">
+                    <p>Disciplinas disponíveis:</p>
+                    <ul>
+                        {% for disciplina in disciplinasOfertadas %}
+                            <li>{{ disciplina.nome_disciplina }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="right">

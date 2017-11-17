@@ -59,25 +59,40 @@
     height: 10em;
 }
 
-.left {
+.perfil {
 	float: left;
-	width: 20%;
- 	height: 100%; 
+	width: 20%; 
     border: 1px solid #00cdff;
     color: #ababab;
 }
 
-.left img {
-    max-width: 100%;
-    padding: 5%;
-    max-height: 300px;
+.disciplinas {
+    width: 20%;
+    border: 1px solid #00cdff;
+    color: #ababab;
+    margin-top: 15%;
+    margin-bottom: 4%;
 }
-.left li {
+
+.perfil li {
     padding: 2.5%;
 }
 
-.left ul {
+.perfil ul {
     padding: 0;
+}
+
+.disciplinas li {
+    padding: 0;
+}
+
+.disciplinas ul {
+    padding: 0;
+}
+
+.disciplinas p {
+    padding: 0;
+
 }
 
 .entregar {
