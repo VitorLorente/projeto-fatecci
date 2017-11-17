@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from cadastros.forms import AlunoForm, MatriculaForm
 from django.contrib.auth.decorators import login_required, user_passes_test
-from cadastros.models import Aluno, DisciplinaOfertada
+from cadastros.models import Aluno, DisciplinaOfertada, Disciplina
 
 # Create your views here.
 def home(request):
@@ -74,3 +74,19 @@ def matricula_disciplina(request):
     }
 
     return render(request, "matricula_disciplina.html", context)
+
+def tec_web(request):
+    disciplina = Disciplina.objects.get(nome="Tecweb")
+    context = {
+        'disciplina' : disciplina
+    }
+
+    return render(request, "tec-web.html", context)
+
+def lp_ii(request):
+    disciplina = Disciplina.objects.get(nome="LPII")
+    context = {
+        'disciplina' : disciplina
+    }
+
+    return render(request, "tec-web.html", context)

@@ -1,0 +1,30 @@
+{% extends 'base_logged.html' %}
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+    <div class="body">
+        <br>
+        <h1>{{ disciplina.nome }} - Carga horária: {{ disciplina.carga_horaria }} - Teoria: {{ disciplina.teoria }} - Prática: {{ disciplina.pratica }}</h1>
+        <br>
+        <br>
+        <h2>Ementa:</h2>
+        {{ disciplina.ementa }}
+        <br>
+        <h2>Competências:</h2>
+        {{ disciplina.competencias }}
+        <br>
+        <h2>Habilidades:</h2>
+        {{disciplina.habilidades}}
+        <br>
+        <h2>Conteúdo:</h2>
+        {{ disciplina.conteudo }}
+        <br>
+        <h2>Bibliografia Básica:</h2>
+        {{ disciplina.bibliografia_basica }}
+        <br>
+        <h2>Bibliografia Complementar:</h2>
+        {{ disciplina.bibliografia_complementar }}
+
+    </div>
+
+{% endblock %}

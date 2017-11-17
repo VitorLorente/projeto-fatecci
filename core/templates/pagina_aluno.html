@@ -16,7 +16,7 @@
                     <p>Disciplinas disponíveis:</p>
                     <ul>
                         {% for disciplina in disciplinasOfertadas %}
-                            <li>{{ disciplina.nome_disciplina }}</li>
+                            <li><a href="{% url disciplina.nome_disciplina.slug %}">{{ disciplina.nome_disciplina.nome }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

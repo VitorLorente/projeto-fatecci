@@ -51,6 +51,7 @@ class Disciplina(models.Model):
     bibliografia_basica = models.TextField(blank=True, null=True)  # This field type is a guess.
     bibliografia_complementar = models.TextField(blank=True, null=True)  # This field type is a guess.
     sigla_curso = models.ForeignKey(Curso)
+    slug = models.SlugField(max_length=20)
         
     class Meta:
         db_table = 'DISCIPLINA'
