@@ -4,7 +4,7 @@
 {% load widget_tweaks %}
     <div class="body">
         <br>
-        <h1>{{ disciplina.nome }} - Carga horária: {{ disciplina.carga_horaria }} - Teoria: {{ disciplina.teoria }} - Prática: {{ disciplina.pratica }}</h1>
+        <h1>{{ disciplina.nome }} - Carga horária: {{ disciplina.carga_horaria }}h - Teoria: {{ disciplina.teoria }}h - Prática: {{ disciplina.pratica }}h</h1>
         <br>
         <br>
         <h2>Ementa:</h2>
@@ -24,6 +24,23 @@
         <br>
         <h2>Bibliografia Complementar:</h2>
         {{ disciplina.bibliografia_complementar }}
+
+        <div class="form_matricula">
+
+            <form method="POST" name="matricula">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field.error }}
+                    <label for="{{ field.name }}" class="label-style-cadastro">{{ field.label_tag }}</label>
+                    {{ field|attr:"class:input"}}
+                    {% if field.help_text %}
+                        <p class="help">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                {% endfor %}             
+                <input type="submit" name="matricular" id="matrcular" value="Matricular!" class="btn-matricular">
+            </form>
+
+        </div>
 
     </div>
 

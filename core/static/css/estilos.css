@@ -11,6 +11,15 @@
     box-sizing: border-box;
 }
 
+.check_matricula {
+    margin-top: 5%;
+}
+
+.btn-matricular {
+    width: 5%;
+    color: #00cdff;
+}
+
 .right {
 	float: right;
 	width: 78%;
