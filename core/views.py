@@ -25,6 +25,7 @@ def checa_aluno(usuario):
 def checa_professor(usuario):
     return usuario.perfil == "P"
 
+
 @login_required(login_url="/login")
 @user_passes_test(checa_aluno)
 def pagina_aluno(request):
@@ -75,6 +76,8 @@ def matricula_disciplina(request):
 
     return render(request, "matricula_disciplina.html", context)
 
+
+
 def tec_web(request):
     if request.POST:
         form = MatriculaForm(request.POST)
@@ -86,7 +89,8 @@ def tec_web(request):
     disciplina = Disciplina.objects.get(nome="Tecweb")
     context = {
         'disciplina' : disciplina,
-        'form' : form
+        'form' : form,
+        'user' : request.user
     }
 
     return render(request, "tec-web.html", context)
@@ -102,7 +106,8 @@ def lp_ii(request):
     disciplina = Disciplina.objects.get(nome="LPII")
     context = {
         'disciplina' : disciplina,
-        'form' : form
+        'form' : form,
+        'user' : request.user
     }
 
     return render(request, "tec-web.html", context)
