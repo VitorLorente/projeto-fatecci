@@ -76,17 +76,33 @@ def matricula_disciplina(request):
     return render(request, "matricula_disciplina.html", context)
 
 def tec_web(request):
+    if request.POST:
+        form = MatriculaForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = MatriculaForm()
+
     disciplina = Disciplina.objects.get(nome="Tecweb")
     context = {
-        'disciplina' : disciplina
+        'disciplina' : disciplina,
+        'form' : form
     }
 
     return render(request, "tec-web.html", context)
 
 def lp_ii(request):
+    if request.POST:
+        form = MatriculaForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = MatriculaForm()
+
     disciplina = Disciplina.objects.get(nome="LPII")
     context = {
-        'disciplina' : disciplina
+        'disciplina' : disciplina,
+        'form' : form
     }
 
     return render(request, "tec-web.html", context)

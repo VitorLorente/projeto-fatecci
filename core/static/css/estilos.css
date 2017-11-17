@@ -11,7 +11,20 @@
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .content {
+=======
+.check_matricula {
+    margin-top: 5%;
+}
+
+.btn-matricular {
+    width: 5%;
+    color: #00cdff;
+}
+
+.right {
+>>>>>>> 9b8cc57125cfa7c9c21837e414a3e95f3bdc925f
 	float: right;
 	width: 78%;
     /* height: 100%;    */
