@@ -31,12 +31,16 @@ def checa_professor(usuario):
 def pagina_aluno(request):
     aluno = Aluno.objects.get(id=request.user.id)
     disciplinas = DisciplinaOfertada.objects.all()
-    dm = Matricula.objects.filter(ra_aluno=request.user.id)
+    disciplinas_matriculadas = Matricula.objects.filter(ra_aluno=request.user.id)
+    lista_disciplinas = []
+    for disciplina in disciplinas_matriculadas:
+        lista_disciplinas.append(disciplina.nome_disciplina.nome_disciplina)
     
     context = {
         'curso' : aluno.sigla_curso.nome,
         'disciplinasOfertadas' : disciplinas,
-        'dm' : dm
+        'disciplinas_matriculadas' : disciplinas_matriculadas,
+        'lista_disciplinas' : lista_disciplinas
     }
 
     return render(request, "pagina_aluno.html", context)
