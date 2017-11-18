@@ -126,7 +126,7 @@ class Turma(models.Model):
         db_table = 'TURMA'
 
     def __str__(self):
-        return str(self.id_turma)
+        return '{} {} {} {}'.format(self.id_turma, self.nome_disciplina.nome_disciplina, self.ano_ofertado.ano, self.semestre_ofertado.semestre)
 
 class Matricula(models.Model):
     ra_aluno = models.ForeignKey(Aluno, models.DO_NOTHING, db_column='ra_aluno')

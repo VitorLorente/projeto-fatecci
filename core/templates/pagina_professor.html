@@ -3,14 +3,21 @@
 {% load static %}
         <div class="body">
             <div class="adless">
-                <div class="perfil">
-                    <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" />     
+                <div class="perfil">    
                     <ul>
-                        <li>Nome do professor: Victor Camilo</li>
-                        <li>RA do professor: 1700608</li>
+                        <li>Nome do professor: {{ user.nome }}</li>
+                        <li>RA do professor: {{ user.ra }}</li>
                     </ul>
+                    <div>
+                        <p>Turmas:</p>
+                        <ul>
+                            {% for turma in turmas %}
+                                <li>{{ turma }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
-                <div class="right">
+                <div class="content">
                     <div>
                         <i class="fa fa-exclamation"></i><h2>Avisos:</h2>
                         <div class="aviso">
@@ -19,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right">
+                <div class="content">
                         <div>
                             <i class="fa fa-pencil-square-o"></i><h2>Cadastrar avisos:</h2>
                             <form name="cadastro_aviso" method="POST">
@@ -31,7 +38,7 @@
                             </form>
                         </div>
                     </div>
-                <div class="right">
+                <div class="content">
                     <div>
                         <i class="fa fa-info-circle"></i><h2>Entregas recebidas:</h2>
                         <ul>
