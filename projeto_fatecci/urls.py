@@ -39,8 +39,8 @@ urlpatterns = [
     url(r'^matricula_disciplina$', matricula_disciplina, name='matricula_disciplina'),
     url(r'^tec-web$', tec_web, name="tec-web"),
     url(r'^lp-ii$', lp_ii, name="lp-ii"),
-    url(r'^pagina_aluno', pagina_aluno, name='pagina_aluno'),
-    url(r'^pagina_professor', pagina_professor, name='pagina_professor'),
-    url(r'^contato', contato, name='contato'),
+    url(r'^pagina_aluno$', pagina_aluno, name='pagina_aluno'),
+    url(r'^pagina_professor$', pagina_professor, name='pagina_professor'),
+    url(r'^contato$', contato, name='contato'),
     url(r'^', home, name='home')
 ]

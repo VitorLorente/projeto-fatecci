@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from cadastros.forms import AlunoForm, MatriculaForm
 from django.contrib.auth.decorators import login_required, user_passes_test
-from cadastros.models import Aluno, DisciplinaOfertada, Disciplina
+from cadastros.models import Aluno, DisciplinaOfertada, Disciplina, Matricula
 
 # Create your views here.
 def home(request):
@@ -31,10 +31,14 @@ def checa_professor(usuario):
 def pagina_aluno(request):
     aluno = Aluno.objects.get(id=request.user.id)
     disciplinas = DisciplinaOfertada.objects.all()
+    dm = Matricula.objects.filter(ra_aluno=request.user.id)
+    
     context = {
         'curso' : aluno.sigla_curso.nome,
-        'disciplinasOfertadas' : disciplinas
+        'disciplinasOfertadas' : disciplinas,
+        'dm' : dm
     }
+
     return render(request, "pagina_aluno.html", context)
 
 @login_required(login_url="/login")
@@ -86,7 +90,7 @@ def tec_web(request):
     else:
         form = MatriculaForm()
 
-    disciplina = Disciplina.objects.get(nome="Tecweb")
+    disciplina = Disciplina.objects.get(nome="Tecnologia Web")
     context = {
         'disciplina' : disciplina,
         'form' : form,
@@ -103,7 +107,7 @@ def lp_ii(request):
     else:
         form = MatriculaForm()
 
-    disciplina = Disciplina.objects.get(nome="LPII")
+    disciplina = Disciplina.objects.get(nome="Linguagem de programação")
     context = {
         'disciplina' : disciplina,
         'form' : form,

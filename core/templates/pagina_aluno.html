@@ -8,13 +8,18 @@
                         <li>Nome do aluno: {{ user.nome }}</li>
                         <li>RA do aluno: {{ user.ra }}</li>
                         <li>Curso do aluno: {{ curso }}</li>
-                        <li><a href="{% url 'matricula_disciplina' %}">Disciplinas para matrícula</a></li>
                     </ul>
                     <div>
-                        <p>Disciplinas disponíveis:</p>
+                        <p>Disciplinas disponíveis para matrícula:</p>
                         <ul>
                             {% for disciplina in disciplinasOfertadas %}
-                                <li><a href="{% url disciplina.nome_disciplina.slug %}">{{ disciplina.nome_disciplina.nome }}</a></li>
+                                <li><a href="{% url disciplina.nome_disciplina.slug %}">{{ disciplina.nome_disciplina }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <p>Disciplinas matriculadas:</p>
+                        <ul>
+                            {% for disciplina in dm %}
+                                <li><a href="{% url disciplina.nome_disciplina.nome_disciplina.slug %}">{{ disciplina.nome_disciplina.nome_disciplina }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

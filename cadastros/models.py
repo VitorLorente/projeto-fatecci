@@ -137,3 +137,6 @@ class Matricula(models.Model):
 
     class Meta:
         db_table = 'MATRICULA'
+
+    def __str__(self):
+        return '{} {} {}'.format(self.ra_aluno.ra, self.nome_disciplina.nome_disciplina, self.id_turma.id_turma)
