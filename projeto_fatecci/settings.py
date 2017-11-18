@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'core',
     'autentication',
     'cadastros',
+    'questionario',
     'widget_tweaks',
 ]
 
