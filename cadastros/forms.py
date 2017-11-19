@@ -68,4 +68,5 @@ class PeriodoDisciplinaForm(ModelForm):
 class MatriculaForm(ModelForm):
     class Meta:
         model = Matricula
-        fields = '__all__'
+        fields = ["id_turma"]
+        #["nome_disciplina", "ano_ofertado", "semestre_ofertado", "id_turma"]

@@ -30,11 +30,13 @@
             <form method="POST" name="matricula">
                 {% csrf_token %}
                 {% for field in form %}
-                    {{ field.error }}
-                    <label for="{{ field.name }}" class="label-style-cadastro">{{ field.label_tag }}</label>
-                    {{ field|attr:"class:input"}}
-                    {% if field.help_text %}
-                        <p class="help">{{ field.help_text|safe }}</p>
+                    {% if field.name != "ra_aluno" %}
+                        {{ field.error }}
+                        <label for="{{ field.name }}" class="label-style-cadastro">{{ field.label_tag }}</label>
+                        {{ field|attr:"class:input"}}
+                        {% if field.help_text %}
+                            <p class="help">{{ field.help_text|safe }}</p>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}             
                 <input type="submit" name="matricular" id="matrcular" value="Matricular!" class="btn-matricular">

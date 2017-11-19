@@ -68,7 +68,7 @@ class DisciplinaOfertada(models.Model):
         db_table = 'DISCIPLINA_OFERTADA'
 
     def __str__(self):
-        if self.semestre == 1:
+        if self.semestre == '1':
             sem = '1º semestre'
         else:
             sem = '2º semestre'
@@ -126,7 +126,12 @@ class Turma(models.Model):
         db_table = 'TURMA'
 
     def __str__(self):
-        return '{} {} {} {}'.format(self.id_turma, self.nome_disciplina.nome_disciplina, self.ano_ofertado.ano, self.semestre_ofertado.semestre)
+        if self.semestre_ofertado.semestre == '1':
+            sem = '1º semestre'
+        else:
+            sem = '2º semestre'
+
+        return '{} {} {} - {}'.format(self.nome_disciplina.nome_disciplina, self.ano_ofertado.ano, sem, self.id_turma)
 
 class Matricula(models.Model):
     ra_aluno = models.ForeignKey(Aluno, models.DO_NOTHING, db_column='ra_aluno')

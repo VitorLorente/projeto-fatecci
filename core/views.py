@@ -89,13 +89,19 @@ def matricula_disciplina(request):
 
     return render(request, "matricula_disciplina.html", context)
 
-
-
+@login_required(login_url="/login")
+@user_passes_test(checa_aluno)
 def tec_web(request):
     if request.POST:
         form = MatriculaForm(request.POST)
+        form.ra_aluno = request.user.ra
         if form.is_valid():
-            form.save()
+            forms = form.save(commit=False)
+            forms.ra_aluno = Aluno.objects.get(id=request.user.id)
+            forms.nome_disciplina = DisciplinaOfertada.objects.get(nome_disciplina=1)
+            forms.ano_ofertado = DisciplinaOfertada.objects.get(nome_disciplina=1)
+            forms.semestre_ofertado = DisciplinaOfertada.objects.get(nome_disciplina=1)
+            forms.save()
     else:
         form = MatriculaForm()
 
@@ -108,19 +114,27 @@ def tec_web(request):
 
     return render(request, "tec-web.html", context)
 
+@login_required(login_url="/login")
+@user_passes_test(checa_aluno)
 def lp_ii(request):
     if request.POST:
         form = MatriculaForm(request.POST)
+
         if form.is_valid():
-            form.save()
+            forms = form.save(commit=False)
+            forms.ra_aluno = Aluno.objects.get(id=request.user.id)
+            forms.nome_disciplina = DisciplinaOfertada.objects.get(nome_disciplina=2)
+            forms.ano_ofertado = DisciplinaOfertada.objects.get(nome_disciplina=2)
+            forms.semestre_ofertado = DisciplinaOfertada.objects.get(nome_disciplina=2)
+            forms.save()
     else:
         form = MatriculaForm()
 
-    disciplina = Disciplina.objects.get(nome="Linguagem de programação II")
+    disciplina = Disciplina.objects.get(nome="Linguagem de Programação II")
     context = {
         'disciplina' : disciplina,
         'form' : form,
         'user' : request.user
     }
 
-    return render(request, "tec-web.html", context)
+    return render(request, "lp-ii.html", context)
