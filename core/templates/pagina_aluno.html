@@ -14,14 +14,14 @@
                         <ul>
                             {% for disciplina in disciplinasOfertadas %}
                                 {% if disciplina.nome_disciplina not in lista_disciplinas %}
-                                    <li><a href="{% url disciplina.nome_disciplina.slug %}">{{ disciplina.nome_disciplina }}</a></li>
+                                    <li><a href="disciplina/{{disciplina.nome_disciplina.slug}}">{{ disciplina.nome_disciplina }}</a></li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
                         <p>Disciplinas matriculadas:</p>
                         <ul>
                             {% for disciplina in disciplinas_matriculadas %}
-                                <li><a href="{% url disciplina.nome_disciplina.nome_disciplina.slug %}">{{ disciplina.nome_disciplina.nome_disciplina }}</a></li>
+                                <li><a href="disciplina/{{disciplina.nome_disciplina.nome_disciplina.slug}}">{{ disciplina.nome_disciplina.nome_disciplina }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
