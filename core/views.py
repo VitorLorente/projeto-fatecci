@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from cadastros.forms import AlunoForm, MatriculaForm
+from questionario.forms import QuestaoForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from cadastros.models import Aluno, DisciplinaOfertada, Disciplina, Matricula, Turma
 
@@ -89,7 +90,8 @@ def matricula_disciplina(request):
 
     return render(request, "matricula_disciplina.html", context)
 
-'''@login_required(login_url="/login")
+'''
+@login_required(login_url="/login")
 @user_passes_test(checa_aluno)
 def tec_web(request):
     if request.POST:
@@ -112,10 +114,9 @@ def tec_web(request):
         'user' : request.user
     }
 
-    return render(request, "tec-web.html", context)'''
+    return render(request, "tec-web.html", context)
+'''
 
-@login_required(login_url="/login")
-@user_passes_test(checa_aluno)
 def disciplina(request, slug):
     disciplina = Disciplina.objects.get(slug=slug)
     if request.POST:
@@ -137,3 +138,6 @@ def disciplina(request, slug):
     }
 
     return render(request, "disciplina.html", context)
+
+def cadastro_avaliacao(request):
+    pass
