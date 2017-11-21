@@ -1,9 +1,7 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
     <head>
-        
         <title>{% block title %}{% endblock %} - FaTecCi</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
@@ -43,5 +41,6 @@
                 <p>FACULDADE TECNOLOGIA E CIDADANIA - FaTecCi <br />
                     <a href="{% url 'contato' %}"> Contato:</a> (11) 9 9999-9999</p>
         </div>
+        <script type="text/javascript" src="{% static 'js/js.js' %}"></script>
     </body>
 </html>
