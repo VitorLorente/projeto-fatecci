@@ -119,6 +119,11 @@ def tec_web(request):
 
 def disciplina(request, slug):
     disciplina = Disciplina.objects.get(slug=slug)
+    aluno = Aluno.objects.get(id=request.user.id)
+    matriculas = Matricula.objects.filter(ra_aluno=aluno.ra)
+    lista_matriculas = []
+    for item in matriculas:
+        lista_matriculas.append(item.nome_disciplina.nome_disciplina.nome)
     if request.POST:
         form = MatriculaForm(request.POST)
         if form.is_valid():
@@ -132,6 +137,7 @@ def disciplina(request, slug):
         form = MatriculaForm()
 
     context = {
+        'matriculas' : lista_matriculas,
         'disciplina' : disciplina,
         'form' : form,
         'user' : request.user
