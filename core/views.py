@@ -144,6 +144,3 @@ def disciplina(request, slug):
     }
 
     return render(request, "disciplina.html", context)
-
-def cadastro_avaliacao(request):
-    pass

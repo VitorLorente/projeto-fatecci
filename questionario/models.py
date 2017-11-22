@@ -20,7 +20,7 @@ class ArquivoQuestao(models.Model):
     semestre_ofertado = models.ForeignKey(DisciplinaOfertada, models.DO_NOTHING, db_column='semestre_ofertado', related_name="arquivoSemestre_ofertado")
     id_turma = models.ForeignKey(Turma, models.DO_NOTHING, db_column='id_turma', related_name="arquivoId_turma")
     numero_questao = models.ForeignKey(Questao, models.DO_NOTHING, db_column='numero_questao', related_name="arquivoNumero_questao")
-    arquivo = models.CharField(unique=True, max_length=500)
+    arquivo = models.FileField()
 
     class Meta:
         db_table = 'ARQUIVO_QUESTAO'
@@ -48,7 +48,7 @@ class ArquivoResposta(models.Model):
     id_turma = models.ForeignKey(Turma, models.DO_NOTHING, db_column='id_turma', related_name="arquivorId_turma")
     numero_questao = models.ForeignKey(Questao, models.DO_NOTHING, db_column='numero_questao', related_name="arquivorNumero_questao")
     ra_aluno = models.ForeignKey(Resposta, models.DO_NOTHING, db_column='ra_aluno', related_name="arquivorRa_aluno")
-    arquivo = models.CharField(unique=True, max_length=500)
+    arquivo = models.FileField(unique=True, max_length=500)
 
     class Meta:
         db_table = 'ARQUIVO_RESPOSTA'

@@ -12,7 +12,7 @@ class ArquivoQuestaoForm(ModelForm):
         model = ArquivoQuestao
         fields = '__all__'
 
-class RespotaForm(ModelForm):
+class RespostaForm(ModelForm):
     class Meta:
         model = Resposta
         fields = '__all__'
