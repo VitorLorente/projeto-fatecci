@@ -21,6 +21,7 @@ class ArquivoQuestao(models.Model):
     id_turma = models.ForeignKey(Turma, models.DO_NOTHING, db_column='id_turma', related_name="arquivoId_turma")
     numero_questao = models.ForeignKey(Questao, models.DO_NOTHING, db_column='numero_questao', related_name="arquivoNumero_questao")
     arquivo = models.FileField()
+    gabarito = models.CharField(max_length=20)
 
     class Meta:
         db_table = 'ARQUIVO_QUESTAO'
@@ -37,8 +38,6 @@ class Resposta(models.Model):
     ra_aluno = models.IntegerField(unique=True)
     data_avaliacao = models.DateField()
     nota = models.DecimalField(max_digits=4, decimal_places=2, blank=True, null=True)
-    avaliacao = models.TextField()  # This field type is a guess.
-    descricao = models.TextField()  # This field type is a guess.
     data_de_envio = models.DateField()
 
     class Meta:

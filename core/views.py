@@ -28,6 +28,14 @@ def checa_aluno(usuario):
 def checa_professor(usuario):
     return usuario.perfil == "P"
 
+def corrige_gabarito(gabarito, resposta):
+    i = 0
+    nota = 0
+    while i < 10:
+        if resposta[i] == gabarito[i]:
+            nota += 1
+        i+=1 
+    return nota
 
 @login_required(login_url="/login")
 @user_passes_test(checa_aluno)
