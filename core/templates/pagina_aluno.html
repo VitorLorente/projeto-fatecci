@@ -40,16 +40,17 @@
                 <div class="content">
                     <div>
                         <i class="fa fa-info-circle"></i><h2>Entregas pendentes:</h2>
-                        <ul>
-                            <li class="entregar">Título Matéria 1:
+                        {% for questao in arquivos_questoes %}
+                            {% if questao.id_turma in lista_turmas %}
                                 <ul>
-                                    <li>Detalhe 1</li>
-                                    <li>Detalhe 2</li>
-                                    <li>Detalhe 3</li>
-                                    <li>Detalhe 4</li>
+                                    <li class="entregar">{{ questao.nome_disciplina }}:
+                                        <ul>
+                                            <li><a href="{% static questao.arquivo %}"> Download </a></li>
+                                        </ul>
+                                    </li>                       
                                 </ul>
-                            </li>                       
-                        </ul>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>

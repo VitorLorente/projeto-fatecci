@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from cadastros.models import *
 from cadastros.forms import AlunoForm, MatriculaForm
 from questionario.forms import QuestaoForm
+from questionario.models import *
 from django.contrib.auth.decorators import login_required, user_passes_test
 from cadastros.models import Aluno, DisciplinaOfertada, Disciplina, Matricula, Turma
 
@@ -32,16 +34,23 @@ def checa_professor(usuario):
 def pagina_aluno(request):
     aluno = Aluno.objects.get(id=request.user.id)
     disciplinas = DisciplinaOfertada.objects.all()
-    disciplinas_matriculadas = Matricula.objects.filter(ra_aluno=request.user.id)
+    disciplinas_matriculadas = Matricula.objects.filter(ra_aluno=aluno.ra)
+    questoes = Questao.objects.all()
+    arquivos_questoes = ArquivoQuestao.objects.all()
     lista_disciplinas = []
+    lista_turmas = []
     for disciplina in disciplinas_matriculadas:
         lista_disciplinas.append(disciplina.nome_disciplina.nome_disciplina)
+        lista_turmas.append(disciplina.id_turma)
     
     context = {
         'curso' : aluno.sigla_curso.nome,
         'disciplinasOfertadas' : disciplinas,
         'disciplinas_matriculadas' : disciplinas_matriculadas,
-        'lista_disciplinas' : lista_disciplinas
+        'lista_disciplinas' : lista_disciplinas,
+        'lista_turmas' : lista_turmas,
+        'arquivos_questoes' : arquivos_questoes,
+        'questoes' : questoes
     }
 
     return render(request, "pagina_aluno.html", context)

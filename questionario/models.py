@@ -25,6 +25,9 @@ class ArquivoQuestao(models.Model):
     class Meta:
         db_table = 'ARQUIVO_QUESTAO'
 
+    def __str__(self):
+        return '{} {} {} {}'.format(self.nome_disciplina, self.ano_ofertado, self.semestre_ofertado, self.id_turma)
+
 class Resposta(models.Model):
     nome_disciplina = models.ForeignKey(DisciplinaOfertada, models.DO_NOTHING, db_column='nome_disciplina', related_name="respostaNome_disciplina")
     ano_ofertado = models.ForeignKey(DisciplinaOfertada, models.DO_NOTHING, db_column='ano_ofertado', related_name="respostaAno_ofertado")
@@ -48,7 +51,7 @@ class ArquivoResposta(models.Model):
     id_turma = models.ForeignKey(Turma, models.DO_NOTHING, db_column='id_turma', related_name="arquivorId_turma")
     numero_questao = models.ForeignKey(Questao, models.DO_NOTHING, db_column='numero_questao', related_name="arquivorNumero_questao")
     ra_aluno = models.ForeignKey(Resposta, models.DO_NOTHING, db_column='ra_aluno', related_name="arquivorRa_aluno")
-    arquivo = models.FileField(unique=True, max_length=500)
+    arquivo = models.FileField()
 
     class Meta:
         db_table = 'ARQUIVO_RESPOSTA'

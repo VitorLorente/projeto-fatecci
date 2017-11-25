@@ -19,6 +19,8 @@ from cadastros.views import *
 from core.views import *
 from questionario.views import *
 from django.contrib.auth.views import login, logout
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin', admin.site.urls),
@@ -43,9 +45,15 @@ urlpatterns = [
     url(r'^matricula$', matricula, name='matricula'),
     url(r'^matricula_disciplina$', matricula_disciplina, name='matricula_disciplina'),
     #url(r'^tec-web$', tec_web, name="tec-web"),
-    url(r'^disciplina/([A-Z, a-z]+)', disciplina, name="disciplina"),
+    #url(r'^media/)
+    url(r'^disciplina/([A-Z, a-z, 0-9]+)', disciplina, name="disciplina"),
     url(r'^pagina_aluno$', pagina_aluno, name='pagina_aluno'),
     url(r'^pagina_professor$', pagina_professor, name='pagina_professor'),
     url(r'^contato$', contato, name='contato'),
     url(r'^', home, name='home')
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

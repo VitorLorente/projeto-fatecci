@@ -126,3 +126,5 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'autentication.Usuario'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'core/static')
+MEDIA_URL = '/core/static/'

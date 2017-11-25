@@ -26,7 +26,7 @@ def cadastro_avaliacao(request):
 @user_passes_test(checa_professor)
 def cadastro_avaliacao2(request):
     if request.POST:
-        form = ArquivoQuestaoForm(request.POST, request.FILE)
+        form = ArquivoQuestaoForm(request.POST, request.FILES)
         
         if form.is_valid():
             form.save()
