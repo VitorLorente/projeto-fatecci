@@ -43,11 +43,8 @@
                         {% for questao in arquivos_questoes %}
                             {% if questao.id_turma in lista_turmas %}
                                 <ul>
-                                    <li class="entregar">{{ questao.nome_disciplina }}:
-                                        <ul>
-                                            <li><a href="{% static questao.arquivo %}"> Download </a></li>
-                                        </ul>
-                                    </li>                       
+                                    <li class="entregar">{{ questao.nome_disciplina }}:</li>
+                                    <li><a href="{% static questao.arquivo %}"> Download </a></li>                       
                                 </ul>
                             {% endif %}
                         {% endfor %}
