@@ -14,6 +14,9 @@ class Questao(models.Model):
     class Meta:
         db_table = 'QUESTAO'
 
+    def __str__(self):
+        return 'Turma: {} Prazo: {} Questão: {}' .format(self.nome_disciplina, self.data_limite_entrega, self.numero)
+
 class ArquivoQuestao(models.Model):
     nome_disciplina = models.ForeignKey(DisciplinaOfertada, models.DO_NOTHING, db_column='nome_disciplina', related_name="arquivoNome_disciplina")
     ano_ofertado = models.ForeignKey(DisciplinaOfertada, models.DO_NOTHING, db_column='ano_ofertado', related_name="arquivoAno_ofertado")
@@ -42,6 +45,9 @@ class Resposta(models.Model):
 
     class Meta:
         db_table = 'RESPOSTA'
+
+    def __str__(self):
+        return str(self.ra_aluno)
 
 class ArquivoResposta(models.Model):
     nome_disciplina = models.ForeignKey(DisciplinaOfertada, models.DO_NOTHING, db_column='nome_disciplina', related_name="arquivorNome_disciplina")

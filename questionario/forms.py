@@ -15,7 +15,7 @@ class ArquivoQuestaoForm(ModelForm):
 class RespostaForm(ModelForm):
     class Meta:
         model = Resposta
-        fields = '__all__'
+        fields = ["nome_disciplina", "ano_ofertado", "semestre_ofertado", "id_turma", "numero_questao", "ra_aluno", "data_avaliacao", "data_de_envio"]
 
 class ArquivoRespostaForm(ModelForm):
     class Meta:

@@ -40,14 +40,22 @@
                 <div class="content">
                     <div>
                         <i class="fa fa-info-circle"></i><h2>Entregas pendentes:</h2>
-                        {% for questao in arquivos_questoes %}
-                            {% if questao.id_turma in lista_turmas %}
-                                <ul>
-                                    <li class="entregar">{{ questao.nome_disciplina }}:</li>
-                                    <li><a href="{% static questao.arquivo %}"> Download </a></li>                       
-                                </ul>
-                            {% endif %}
-                        {% endfor %}
+                        <table style="width:100%">
+                            <tr>
+                                <th>Turma</th>
+                                <th>Quetionario</th>
+                                <th>Resposta</th>
+                            </tr>
+                            {% for questao in arquivos_questoes %}
+                                {% if questao.id_turma in lista_turmas %}
+                                    <tr>
+                                        <td>{{ questao.nome_disciplina }}</td>
+                                        <td><a href="{% static questao.arquivo %}"> Download </a></td>
+                                        <td><a href="{% url 'cadastro_resposta' %}"> Responder </a></td>                  
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </table>
                     </div>
                 </div>
             </div>
