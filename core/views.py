@@ -42,7 +42,7 @@ def corrige_gabarito(gabarito, resposta):
 def pagina_aluno(request):
     aluno = Aluno.objects.get(id=request.user.id)
     disciplinas = DisciplinaOfertada.objects.all()
-    disciplinas_matriculadas = Matricula.objects.filter(ra_aluno=aluno.ra)
+    disciplinas_matriculadas = Matricula.objects.filter(ra_aluno=aluno)
     questoes = Questao.objects.all()
     arquivos_questoes = ArquivoQuestao.objects.all()
     lista_disciplinas = []
