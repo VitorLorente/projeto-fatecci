@@ -59,7 +59,7 @@ def cadastro_resposta(request):
         
         if form.is_valid():
             form.save()
-            redirect('/cadastro_resposta2')
+            return redirect('/cadastro_resposta2')
     else:
         form = RespostaForm()
         
