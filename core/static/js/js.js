@@ -4,7 +4,7 @@ var ativo = true;
 var titulo = document.title.toUpperCase();
 var ligaDesliga = document.querySelectorAll('.navbar li');
 
-if (titulo == "ALUNO - FATECCI" || titulo == "PROFESSOR - FATECCI"){
+if (titulo == "ALUNO - FATECCI" || titulo == "PROFESSOR - FATECCI" || titulo == "BOLETIM - FATECCI"){
 	document.getElementsByTagName('img')[1].style.display = 'none';
 	document.getElementsByTagName('img')[2].style.display = 'none';
 }

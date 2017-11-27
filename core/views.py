@@ -22,6 +22,9 @@ def grade(request):
 def detalhes(request):
     return render(request, "detalhes.html")
 
+def boletim(request):
+    return render(request, "boletim.html")
+
 def checa_aluno(usuario):
     return usuario.perfil == "A"
 

@@ -40,6 +40,7 @@ urlpatterns = [
     url(r'^noticias$', noticias, name='noticias'),
     url(r'^grade_curricular$', grade, name='grade'),
     url(r'^detalhes$', detalhes, name='detalhes'),
+    url(r'^boletim$', boletim, name='boletim'),
     url(r'^login$', login, {"template_name": "login.html"}, name='login'),
     url(r'^logout$', logout, {"template_name": "logout.html"}, name='logout'),
     url(r'^matricula$', matricula, name='matricula'),

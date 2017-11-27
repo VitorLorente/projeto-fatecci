@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Boletim{% endblock %}
+{% block content %}
+{% load static %}
+        <div class="body">
+            <div class="adless">
+                <h1 class="subtitle">Boletim</h1>
+                <h2 class="subtitle">Curso de: Sistemas de informação</h2>
+                <table>
+                    <tr>
+                        <th>Matéria</th>
+                        <th>1º bimestre</th>
+                        <th>2º bimestre</th>
+                        <th>Nota final</th>
+                        <th>Situação</th>
+                        <th>Total Faltas</th>
+                    </tr>
+                    <tr>
+                        <td>TecWeb</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>Aprovado</td>
+                        <td>10</td>
+                    </tr>                
+                    <tr>
+                        <td>Cidadania participativa</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>Aprovado</td>
+                        <td>10</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+{% endblock %}
