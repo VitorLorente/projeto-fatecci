@@ -45,16 +45,17 @@
                 <div class="content">
                     <div>
                         <i class="fa fa-info-circle"></i><h2>Entregas recebidas:</h2>
-                        <ul>
-                            <li class="entregar">Título Matéria 1:
+                        {% for resposta in respostas %}
+                            {% if resposta.id_turma in turmas %}
                                 <ul>
-                                    <li>Detalhe 1</li>
-                                    <li>Detalhe 2</li>
-                                    <li>Detalhe 3</li>
-                                    <li>Detalhe 4</li>
+                                    <li class="entregar">{{ resposta.nome_disciplina }}:
+                                        <ul>
+                                            <li>{{ resposta.id_turma }} - {{ resposta.ra_aluno }}</li>
+                                        </ul>
+                                    </li>                       
                                 </ul>
-                            </li>                       
-                        </ul>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>

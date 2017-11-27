@@ -70,8 +70,10 @@ def pagina_aluno(request):
 @user_passes_test(checa_professor)
 def pagina_professor(request):
     turmas = Turma.objects.filter(ra_professor=request.user.ra)
+    respostas = Resposta.objects.all()
     context = {
-        'turmas' : turmas
+        'turmas' : turmas,
+        'respostas' : respostas
     }
 
     return render(request, "pagina_professor.html", context)
