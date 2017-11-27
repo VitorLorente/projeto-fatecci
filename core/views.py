@@ -13,6 +13,9 @@ def home(request):
 def cursos(request):
     return render(request, "cursos.html")
 
+def boletim(request):
+    return render(request, "boletim.html")
+
 def noticias(request):
     return render(request, "noticias.html")
 
