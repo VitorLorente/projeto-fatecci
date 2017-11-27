@@ -1,11 +1,12 @@
 var menu = document.querySelectorAll('li')[0];
 var toggle = [];
 var ativo = true;
-
+var titulo = document.title.toUpperCase();
 var ligaDesliga = document.querySelectorAll('.navbar li');
 
-if (document.title == "Aluno - FaTecCi"){
-	console.log("Funciona!");
+if (titulo == "ALUNO - FATECCI" || titulo == "PROFESSOR - FATECCI"){
+	document.getElementsByTagName('img')[1].style.display = 'none';
+	document.getElementsByTagName('img')[2].style.display = 'none';
 }
 
 menu.addEventListener('click', function(){
