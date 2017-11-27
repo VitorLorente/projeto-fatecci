@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin', admin.site.urls),
+    url(r'^boletim$', boletim, name="boletim"), 
     url(r'^cadastro_aluno$', cadastro_aluno, name='cadastro_aluno'),
     url(r'^cadastro_professor$', cadastro_professor, name='cadastro_professor'),
     url(r'^cadastro_curso$', cadastro_curso, name='cadastro_curso'),
