@@ -12,8 +12,8 @@
 }
 
 .content {
-	float: right;
-	width: 78%;
+    float: right;
+    width: 78%;
     border: 1px solid #00cdff;
     margin-bottom: 4%; 
     color: #ababab;
@@ -426,7 +426,7 @@ table {
     color: #ababab;
 }
 td {
-    border: 1px solid #dddddd;
+    border: 1px solid #ababab;
     text-align: right;
     padding: 8px;
 }
