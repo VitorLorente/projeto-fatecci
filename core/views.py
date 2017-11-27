@@ -48,6 +48,10 @@ def pagina_aluno(request):
     disciplinas_matriculadas = Matricula.objects.filter(ra_aluno=aluno)
     questoes = Questao.objects.all()
     arquivos_questoes = ArquivoQuestao.objects.all()
+    respostas = Resposta.objects.all()
+    lista_respostas = []
+    for resposta in respostas:
+        lista_respostas.append(resposta.numero_questao)
     lista_disciplinas = []
     lista_turmas = []
     for disciplina in disciplinas_matriculadas:
